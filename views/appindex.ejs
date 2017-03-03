@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>小说</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="/lib/mui-master/dist/css/mui.min.css">
+</head>
+
+<body>
+<!--<header class="mui-bar mui-bar-nav">
+    <a class="mui-icon mui-icon-bars mui-pull-left mui-plus-visible"></a>
+    <a id="info" class="mui-icon mui-icon-info-filled mui-pull-right" style="color: #999;"></a>
+
+</header>-->
+<%include head.ejs%>
+<div class="text-center">
+    <div class="btn-group">
+        <%if(page>1){%>
+        <a href="/?category=<%=category%>&searchTxt=<%=searchTxt%>&page=<%=page-1%>" class="btn btn-primary" >
+            <span class="glyphicon glyphicon-search"></span>
+            上一页
+        </a>
+        <%}%>
+        <%if(isNextPage){%>
+        <a href="/?category=<%=category%>&searchTxt=<%=searchTxt%>&page=<%=page+1%>" class="btn btn-primary">
+            <span class="glyphicon glyphicon-search"></span>
+            下一页
+        </a>
+        <%}%>
+    </div>
+</div>
+<div class="mui-content" style="background-color:#fff">
+<ul class="mui-table-view mui-grid-view" style="list-style: none">
+    <%for(var item of rows){%>
+    <li class="mui-table-view-cell mui-media mui-col-xs-6">
+        <a href="#">
+            <img class="mui-media-object" src="<%=item.imgUrl%>" style="width: 120px;height:150px">
+            <div class="mui-media-body"><%=item.name%></div>
+            <div class="mui-media-body" style="width:150px;height:30px;font-size: 12px;">作者：<%=item.author%></div>
+        </a></li>
+</ul>
+    <div class="mui-content">
+        <div class="mui-content-padded">
+            <a class="mui-btn mui-btn-block btn btn-primary"   href="/viewnovel?id=<%=item._id%>" role="button">
+                    查看章节
+                </a>
+            <a class="mui-btn mui-btn-primary mui-btn-block btn-primary"href="/viewsection?id=<%=item._id%>" role="button">
+                    阅读
+                </a>
+        </div>
+    </div>
+    <%}%>
+</div>
+
+
+
+
+
+<!--<div style="overflow:hidden;zoom:1;">
+    <%for(var item of rows){%>
+    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+        <img src="<%=item.imgUrl%>" style="width: 120px;height:150px">
+        <div style="width:220px;color: #0000ff"><%=item.name%></div>
+        <div style="width:150px;height:30px;font-size: 12px;">作者：<%=item.author%></div>
+        <p class="btn-group" style="margin-top: 5px">
+            <a href="/viewnovel?id=<%=item._id%>" class="btn btn-primary" role="button">
+                查看章节
+            </a>
+            <a href="/viewsection?id=<%=item._id%>" class="btn btn-default" role="button">
+                阅读
+            </a>
+        </p>
+    </div>
+    <%}%>
+</div>-->
+<%include footer.ejs%>
+<script src="/lib/mui-master/dist/js/mui.min.js"></script>
+</body>
+
+</html>

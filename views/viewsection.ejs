@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>小说</title>
+</head>
+<body style="background-color: #EBF9F9">
+<% include head.ejs%>
+<% include button.ejs%>
+<div style="width: 80%;margin: 0 auto;padding: 10px 10px;border:2px solid #ccc;border-radius: 10px">
+    <h2 style="text-align: center;line-height: 100px" ><%=novel.sections[index].name%></h2>
+    <%-content%></div>
+<% include button.ejs%>
+<% include footer.ejs%>
+</body>
+</html>
